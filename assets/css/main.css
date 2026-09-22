@@ -22,6 +22,8 @@
   .btn-secondary:hover { border-color: #635bff; color: #635bff; }
   .eyebrow { @apply text-xs font-bold uppercase tracking-[.16em]; color: #635bff; }
 }
+html.dark .swal2-popup { background: #0f172a; color: #f8fafc; }
+html.dark .swal2-input { border-color: #334155; background: #1e293b; color: #f8fafc; }
 
 /* Shared fallback for screens that use base utility classes without dark variants. */
 html.dark .card { border-color: #334155; background: #171c25; box-shadow: 0 18px 50px rgba(0, 0, 0, .24); }
