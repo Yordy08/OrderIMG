@@ -1,0 +1,2 @@
+<script setup lang="ts">defineProps<{ label: string; value: number | string; detail?: string; tone?: string }>()</script>
+<template><div class="card p-5"><div class="flex items-start justify-between"><p class="text-sm text-slate-500">{{ label }}</p><span :class="tone || 'bg-brand/10 text-brand'" class="rounded-lg px-2 py-1 text-xs font-bold">●</span></div><p class="mt-3 font-display text-3xl font-bold">{{ value }}</p><p v-if="detail" class="mt-1 text-xs text-slate-400">{{ detail }}</p></div></template>

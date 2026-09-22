@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root { font-family: 'DM Sans', sans-serif; color: #172033; background: #f7f8fc; color-scheme: light; }
+  h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; }
+  body { @apply antialiased; }
+  html.dark, html.dark body, html.dark #__nuxt { background: #020617; color: #f8fafc; color-scheme: dark; }
+  button, input, textarea, select { font: inherit; }
+}
+@layer components {
+  .card { border: 1px solid #e2e8f0; border-radius: 1rem; background: #fff; box-shadow: 0 18px 50px rgba(24, 32, 51, .08); }
+  .input { width: 100%; border: 1px solid #e2e8f0; border-radius: .75rem; background: #fff; padding: .625rem .875rem; font-size: .875rem; outline: none; transition: all .2s; }
+  .input:focus { border-color: #635bff; box-shadow: 0 0 0 4px rgba(99, 91, 255, .1); }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition; }
+  .btn-primary { @apply btn bg-ink text-white; }
+  .btn-primary:hover { background: #635bff; }
+  .btn-secondary { @apply btn; border: 1px solid #e2e8f0; background: #fff; color: #172033; }
+  .btn-secondary:hover { border-color: #635bff; color: #635bff; }
+  .eyebrow { @apply text-xs font-bold uppercase tracking-[.16em]; color: #635bff; }
+}
+
+/* Shared fallback for screens that use base utility classes without dark variants. */
+html.dark .card { border-color: #334155; background: #171c25; box-shadow: 0 18px 50px rgba(0, 0, 0, .24); }
+html.dark .input,
+html.dark .btn-secondary { border-color: #334155; background: #1f2937; color: #f8fafc; }
+html.dark .input::placeholder { color: #94a3b8; }
+html.dark .bg-white { background-color: #171c25; }
+html.dark .bg-white\/90 { background-color: rgba(15, 23, 42, .92) !important; }
+html.dark .bg-\[\#f7f8fc\] { background-color: #020617; }
+html.dark .bg-slate-50 { background-color: #1f2937; }
+html.dark .bg-slate-100 { background-color: #273449; }
+html.dark .bg-slate-200 { background-color: #334155; }
+html.dark .border-slate-100,
+html.dark .border-slate-200 { border-color: #334155; }
+html.dark .divide-slate-100 > :not([hidden]) ~ :not([hidden]) { border-color: #334155; }
+html.dark .text-slate-900 { color: #f8fafc; }
+html.dark .text-slate-700,
+html.dark .text-slate-600 { color: #cbd5e1; }
+.app-sidebar { display: none !important; }
+html.dark .text-slate-500,
+html.dark .text-slate-400 { color: #94a3b8; }
+html.dark .text-ink { color: #f8fafc; }
+html.dark .app-nav,
+html.dark .app-nav a { color: #e2e8f0; }
+html.dark .app-nav a:hover,
+html.dark .app-nav a:focus-visible { color: #a5a0ff; }
+html.dark .hover\:bg-slate-50:hover { background-color: #1f2937; }
+html.dark .dark\:bg-slate-950 { background-color: #020617; }
