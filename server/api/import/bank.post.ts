@@ -6,7 +6,7 @@ import { parseBankSource } from '../../utils/parseBank'
 
 const nicheNames: Record<string, string> = { dia: 'Diabetes', art: 'Articulaciones', pro: 'Próstata' }
 const riskMap: Record<string, string> = { bajo: 'LOW', 'bajo-medio': 'LOW', medio: 'MEDIUM', 'medio-alto': 'HIGH', alto: 'EXTREME' }
-const types: Record<string, string> = { afirm: 'affirmative_title', preg: 'question_title', val: 'validation', ben: 'benefit', promo: 'promo', cta: 'cta' }
+const types: Record<string, string> = { afirm: 'affirmative_title', preg: 'question_title', val: 'validation', ben: 'benefit', promo: 'promo', cta: 'cta', news: 'news' }
 
 export default defineEventHandler(async (event) => {
   await connectDb(); const body = await readBody(event); const bank = parseBankSource(String(body?.source || '')); const niches: Record<string, any> = {}; let components = 0

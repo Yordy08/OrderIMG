@@ -1,4 +1,4 @@
-export const categories = ['affirmative_title', 'question_title', 'validation', 'benefit', 'promo', 'cta'] as const
+export const categories = ['affirmative_title', 'question_title', 'validation', 'benefit', 'promo', 'cta', 'news'] as const
 export const riskLevels = ['LOW', 'MEDIUM', 'HIGH', 'EXTREME'] as const
 
 export function requiredString(value: unknown, field: string) {

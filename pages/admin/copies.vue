@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const angles = ref<any[]>([]); const copies = ref<any[]>([]); const form = reactive({ angleId: '', type: 'affirmative_title', text: '' }); const bulk = ref(''); const categories = [['affirmative_title','Título afirmativo'],['question_title','Título pregunta'],['validation','Validación'],['benefit','Beneficio'],['promo','Promoción'],['cta','CTA']]; const alert = useAlert()
+const angles = ref<any[]>([]); const copies = ref<any[]>([]); const form = reactive({ angleId: '', type: 'affirmative_title', text: '' }); const bulk = ref(''); const categories = [['affirmative_title','Título afirmativo'],['question_title','Título pregunta'],['validation','Validación'],['benefit','Beneficio'],['promo','Promoción'],['cta','CTA'],['news','Noticia']]; const alert = useAlert()
 async function load() { angles.value = await $fetch('/api/angles'); copies.value = await $fetch('/api/copies', { query: form.angleId ? { angleId: form.angleId } : {} }); if (!form.angleId) form.angleId = angles.value[0]?._id || '' }; onMounted(load)
 watch(() => form.angleId, async id => { if (id) copies.value = await $fetch('/api/copies', { query: { angleId: id } }) })
 async function add() { await $fetch('/api/copies', { method: 'POST', body: form }); form.text = ''; await load() }

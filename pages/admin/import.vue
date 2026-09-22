@@ -2,7 +2,7 @@
 type Angle = { _id: string; code?: string; name: string; nicheId?: { _id: string; name: string } | string }
 type Parsed = { id: number; type: string; text: string; source: string }
 const angles = ref<Angle[]>([]); const selectedAngle = ref(''); const fileName = ref(''); const parsed = ref<Parsed[]>([]); const dragging = ref(false); const importing = ref(false); const message = ref(''); const error = ref(''); const rawSource = ref(''); const bankDetected = ref(false); const bankPreview = ref<any[]>([])
-const types: Record<string, string> = { affirmative_title: 'Título afirmativo', question_title: 'Título pregunta', validation: 'Validación', benefit: 'Beneficio', promo: 'Promoción', cta: 'CTA' }
+const types: Record<string, string> = { affirmative_title: 'Título afirmativo', question_title: 'Título pregunta', validation: 'Validación', benefit: 'Beneficio', promo: 'Promoción', cta: 'CTA', news: 'Noticia' }
 const counts = computed(() => Object.fromEntries(Object.keys(types).map(type => [type, parsed.value.filter(x => x.type === type).length])))
 function countAngle(angle: any) { return Object.values(angle.counts || {}).reduce((total: number, value: any) => total + Number(value || 0), 0) }
 onMounted(async () => { angles.value = await $fetch<Angle[]>('/api/angles', { query: { active: true } }) })
