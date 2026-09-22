@@ -4,7 +4,6 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss'],
   css: ['~/assets/css/main.css'],
   runtimeConfig: {
-    mongodbUri: process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/nutra_copy_cod',
     public: { appName: 'CopyLab COD' }
   },
   typescript: { strict: true, typeCheck: false },

@@ -2,10 +2,10 @@
 const dark = useState('dark', () => false)
 const product = useState('product', () => 'Glucozen')
 const country = useState('country', () => 'Guatemala')
-function applyTheme(value: boolean) { if (!import.meta.client) return; document.documentElement.classList.toggle('dark', value); document.body.classList.toggle('dark', value); document.documentElement.dataset.theme = value ? 'dark' : 'light'; document.documentElement.style.colorScheme = value ? 'dark' : 'light'; localStorage.setItem('copylab-theme', value ? 'dark' : 'light') }
+function applyTheme(value: boolean) { if (!import.meta.client) return; document.documentElement.classList.toggle('dark', value); document.body.classList.toggle('dark', value); document.documentElement.dataset.theme = value ? 'dark' : 'light'; document.documentElement.style.colorScheme = value ? 'dark' : 'light' }
 function toggleTheme() { dark.value = !dark.value; applyTheme(dark.value) }
 watch(dark, applyTheme, { immediate: true })
-onMounted(() => { dark.value = localStorage.getItem('copylab-theme') === 'dark'; applyTheme(dark.value) })
+onMounted(() => applyTheme(dark.value))
 </script>
 <template>
   <div :class="dark ? 'dark' : ''" class="min-h-screen bg-cream text-ink dark:bg-slate-950 dark:text-slate-100">
